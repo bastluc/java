@@ -28,7 +28,7 @@ public class Bataille{
     while(joueur1.getCartes().size() > 0 && joueur2.getCartes().size() > 0){
       if(joueur1.getCartes().get(0).getValeur() > joueur2.getCartes().get(0).getValeur()){
         System.out.println("\n\n\n"+joueur1.getCartes().get(0)+" .vs. "+joueur2.getCartes().get(0));
-        if(cartesEgalite.size() > 2){
+        if(cartesEgalite.size() > 0){
           for(var i=0; i<cartesEgalite.size(); i++){
             joueur1.getCartes().add(cartesEgalite.get(i));
           }
@@ -43,15 +43,19 @@ public class Bataille{
       }
       else if(joueur2.getCartes().get(0).getValeur() == joueur1.getCartes().get(0).getValeur()){
         System.out.println("\n\n\n"+joueur1.getCartes().get(0)+" .vs. "+joueur2.getCartes().get(0));
-        cartesEgalite.add(joueur1.getCartes().get(0));
-        cartesEgalite.add(joueur2.getCartes().get(0));
-        joueur2.getCartes().remove(0);
-        joueur1.getCartes().remove(0);
+        if(joueur1.getCartes().size() > 1){
+          cartesEgalite.add(joueur1.getCartes().get(0));
+          joueur1.getCartes().remove(0);
+        }
+        if(joueur2.getCartes().size() > 1){
+          cartesEgalite.add(joueur2.getCartes().get(0));
+          joueur2.getCartes().remove(0);
+        }
         System.out.println("Egalité !");
       }
       else if(joueur2.getCartes().get(0).getValeur() > joueur1.getCartes().get(0).getValeur()) {
         System.out.println("\n\n\n"+joueur1.getCartes().get(0)+" .vs. "+joueur2.getCartes().get(0));
-        if(cartesEgalite.size() > 2){
+        if(cartesEgalite.size() > 0){
           for(var i=0; i<cartesEgalite.size(); i++){
             joueur2.getCartes().add(cartesEgalite.get(i));
           }
@@ -66,6 +70,7 @@ public class Bataille{
       }
     }
     System.out.println("\n\n________________________________________________________\n\n");
+    System.out.println("\n\n Le joueur 1 possède "+joueur1.getCartes().size()+" cartes, le joueur 2 en possède "+joueur2.getCartes().size()+"\n\n");
     if(joueur1.getCartes().size() == 0){
       System.out.println("JOUEUR 2 GAGNE ! ");
     }
