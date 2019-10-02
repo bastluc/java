@@ -43,14 +43,10 @@ public class Bataille{
       }
       else if(joueur2.getCartes().get(0).getValeur() == joueur1.getCartes().get(0).getValeur()){
         System.out.println("\n\n\n"+joueur1.getCartes().get(0)+" .vs. "+joueur2.getCartes().get(0));
-        if(joueur1.getCartes().size() > 1){
-          cartesEgalite.add(joueur1.getCartes().get(0));
-          joueur1.getCartes().remove(0);
-        }
-        if(joueur2.getCartes().size() > 1){
-          cartesEgalite.add(joueur2.getCartes().get(0));
-          joueur2.getCartes().remove(0);
-        }
+        cartesEgalite.add(joueur1.getCartes().get(0));
+        joueur1.getCartes().remove(0);
+        cartesEgalite.add(joueur2.getCartes().get(0));
+        joueur2.getCartes().remove(0);
         System.out.println("Egalité !");
       }
       else if(joueur2.getCartes().get(0).getValeur() > joueur1.getCartes().get(0).getValeur()) {
