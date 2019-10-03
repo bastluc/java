@@ -8,16 +8,12 @@ public class Bataille{
   }
 
   public static void Play(){
-    List<Carte> paquet = new ArrayList();
+    List<Carte> paquet = getPaquet();
     List<Carte> cartesEgalite = new ArrayList();
     Joueur joueur1 = new Joueur();
     Joueur joueur2 = new Joueur();
-    for(var i=0; i<4; i++){
-      for(var y=0; y<13; y++){
-        paquet.add(new Carte(y, i));
-      }
-    }
     Collections.shuffle(paquet);
+
     for (var i=0; i<26; i++){
       joueur1.getCartes().add(paquet.get(i));
     }
@@ -74,5 +70,15 @@ public class Bataille{
       System.out.println("JOUEUR 1 GAGNE ! ");
     }
     System.out.println("Résultat : "+joueur1.getScore()+" à "+joueur2.getScore()+"\n\n\n");
+  }
+
+  public static List<Carte> getPaquet(){
+    List<Carte> paquet = new ArrayList();
+    for(var i=0; i<4; i++){
+      for(var y=0; y<13; y++){
+        paquet.add(new Carte(y, i));
+      }
+    }
+    return paquet;
   }
 }
