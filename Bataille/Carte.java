@@ -8,16 +8,8 @@ public class Carte{
   private int valeur;
 
   public Carte(int valeur, int couleur){
-    this.couleur = 0;
-    this.valeur = 0;
-    if(Carte.isARealCard(couleur, valeur)){
-      this.couleur = couleur;
-      this.valeur = valeur;
-    }
-  }
-
-  private static boolean isARealCard(int c, int v){
-    return true;
+    this.couleur = couleur;
+    this.valeur = valeur;
   }
 
   public String toString(){
